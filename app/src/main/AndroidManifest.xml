@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.user.locationtutorial">
+
+    <!--
+API Key Setup Instructions
+Go to the Google API Console.
+Create or select a project.
+Click Continue to enable the Google Places API for Android.
+On the Credentials page, get an API key.
+Note: If you have an existing API key with Android restrictions, you may use that key.
+
+Restricting your API key
+To control who can use this key to access Google's API; restrict the key to a certain Android app
+
+From the dialog displaying the API key, select Restrict key to set an Android restriction on the API key.
+In the Restrictions section, select Android apps, then enter your app's SHA-1 fingerprint and package name. For example: BB:0D:AC:74:D3:21:E1:43:67:71:9B:62:91:AF:A1:66:6E:44:5D:75 com.example.android.places-example
+Click Save.
+To find your app's SHA-1 fingerprint information and for more information refer to this Google documentation.
+
+Your new Android-restricted API key appears in the list of API keys for your project. An API key is a string of characters, something like this:
+
+AIzaSyBdVl-cTICSwYKrZ95SuvNw7dbMuDt1KG0
+
+It may take up to 5 minutes for the key to be fully provisioned. If the key does not work immediately, try again in 5 minutes.
+
+add to meta data
+<meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyC8MNQp03r1jHnHD7khAFi-ZqJmXB3eI3k"/>
+
+setup dependencies, see number here: https://developers.google.com/android/guides/setup
+compile 'com.google.android.gms:play-services-location:11.0.2'
+    compile 'com.google.android.gms:play-services-places:11.0.2'
+
+    grant required permission
+    ACCESS_COARSE_LOCATION -> use only wifi + celltower
+    ACCESS_FINE_LOCATION -> use satellite + wifi + celltower
+    -->
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyC8MNQp03r1jHnHD7khAFi-ZqJmXB3eI3k"/>
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
